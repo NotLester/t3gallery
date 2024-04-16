@@ -13,6 +13,15 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+function TopNav() {
+  return (
+    <nav className="flex items-center justify-between border border-b bg-blue-500 p-4 text-xl text-white">
+          <h1 className="text-2xl font-bold">T3 Gallery</h1>
+          <div>Sign in</div>
+    </nav>
+  );
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -20,7 +29,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>{children}</body>
+      <body className={`font-sans ${inter.variable} flex flex-col gap-4`}>
+        <div className="w-full">
+          <TopNav />
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
